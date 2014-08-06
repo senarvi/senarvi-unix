@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Searches installed package names.
+#
+
+if [ -x /usr/bin/dpkg ]; then
+	dpkg --get-selections | grep $*
+elif [ -x /bin/rpm ]; then
+	rpm --query --all | grep $*
+else
+	echo "No package manager found."
+fi

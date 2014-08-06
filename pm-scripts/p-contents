@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Lists the contents of an installed package.
+#
+
+if [ -x /usr/bin/dpkg ]; then
+	dpkg -L $*
+elif [ -x /bin/rpm ]; then
+	rpm --query --list $*
+else
+	echo "No package manager found."
+fi

@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Installs a package file.
+#
+
+if [ -x /usr/bin/dpkg ]; then
+	dpkg -i $*
+elif [ -x /bin/rpm ]; then
+	rpm --upgrade -v --hash $*
+else
+	echo "No package manager found."
+fi

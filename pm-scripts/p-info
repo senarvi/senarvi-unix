@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Queries information of an installed package.
+#
+
+if [ -x /usr/bin/dpkg ]; then
+	dpkg -s $*
+elif [ -x /bin/rpm ]; then
+	rpm --query -i $*
+else
+	echo "No package manager found."
+fi
