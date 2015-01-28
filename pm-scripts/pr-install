@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Installs a package from a software repository.
+#
+
+if command -v aptcond >/dev/null 2>&1; then
+	aptdcon -i $*
+elif command -v aptitude >/dev/null 2>&1; then
+	aptitude install $*
+elif command -v apt-get >/dev/null 2>&1; then
+	apt-get install $*
+elif command -v yum >/dev/null 2>&1; then
+	yum install $*
+elif command -v up2date >/dev/null 2>&1; then
+	up2date --update --verbose $*
+else
+	echo "No package manager found."
+fi

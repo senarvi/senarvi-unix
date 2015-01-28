@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Finds the package that owns a file.
 #
 
-if [ -x /usr/bin/dpkg ]; then
+if command -v dpkg >/dev/null 2>&1; then
 	dpkg -S $*
-elif [ -x /bin/rpm ]; then
+elif command -v rpm >/dev/null 2>&1; then
 	rpm --query --file $*
 else
 	echo "No package manager found."

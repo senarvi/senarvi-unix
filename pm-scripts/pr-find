@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Searches packages from software repositories.
+#
+
+if command -v aptitude >/dev/null 2>&1; then
+	aptitude search $*
+elif command -v apt-cache >/dev/null 2>&1; then
+	apt-cache search $*
+elif command -v yum >/dev/null 2>&1; then
+	yum search $*
+elif command -v up2date >/dev/null 2>&1; then
+	up2date --showall | grep $*
+else
+	echo "No package manager found."
+fi

@@ -1,7 +1,8 @@
-An intuitive interface for common package manager commands.
-The commands work on both Red Hat (RPM) and Debian (DPKG)
-package managers.
+An intuitive interface for common package manager commands. The commands work on
+both Red Hat (RPM) and Debian (DPKG) package managers, and various software
+update tools (apt, aptitude, yum, up2date).
 
 p-* commands operate on installed packages
 pf-* commands operate on package files
+pr-* commands operate on packages from software repositories
 f-* commands operate on any file (installed by a package)
