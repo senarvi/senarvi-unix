@@ -3,9 +3,9 @@
 # Searches installed package names.
 #
 
-if [ -x /usr/bin/dpkg ]; then
+if command -v dpkg >/dev/null 2>&1; then
 	dpkg --get-selections | grep $*
-elif [ -x /bin/rpm ]; then
+elif command -v rpm >/dev/null 2>&1; then
 	rpm --query --all | grep $*
 else
 	echo "No package manager found."
