@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Queries information of a package from software repositories.
+#
+
+if command -v aptitude >/dev/null 2>&1; then
+	aptitude show $*
+elif command -v apt-cache >/dev/null 2>&1; then
+	apt-cache show $*
+elif command -v yum >/dev/null 2>&1; then
+	yum info $*
+else
+	echo "No package manager found."
+fi
