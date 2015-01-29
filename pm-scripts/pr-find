@@ -10,6 +10,7 @@ elif command -v apt-cache >/dev/null 2>&1; then
 elif command -v yum >/dev/null 2>&1; then
 	yum search $*
 elif command -v up2date >/dev/null 2>&1; then
+	up2date --packages --verbose
 	up2date --showall | grep $*
 else
 	echo "No package manager found."

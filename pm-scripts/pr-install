@@ -12,6 +12,7 @@ elif command -v apt-get >/dev/null 2>&1; then
 elif command -v yum >/dev/null 2>&1; then
 	yum install $*
 elif command -v up2date >/dev/null 2>&1; then
+	up2date --packages --verbose
 	up2date --update --verbose $*
 else
 	echo "No package manager found."
