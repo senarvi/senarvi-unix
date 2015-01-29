@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Finds the package that owns a file.
 #
