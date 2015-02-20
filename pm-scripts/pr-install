@@ -3,7 +3,9 @@
 # Installs a package from a software repository.
 #
 
-if command -v aptdcon >/dev/null 2>&1; then
+if command -v pkcon >/dev/null 2>&1; then
+	pkcon install $*
+elif command -v aptdcon >/dev/null 2>&1; then
 	aptdcon -i $*
 elif command -v aptitude >/dev/null 2>&1; then
 	aptitude install $*
