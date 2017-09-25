@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Prints information of a package file.
+#
+
+if command -v dpkg-deb >/dev/null 2>&1; then
+	dpkg-deb -I $*
+elif command -v rpm >/dev/null 2>&1; then
+	rpm --query -i --package $*
+else
+	echo "No package manager found."
+fi
